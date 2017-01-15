@@ -29,9 +29,6 @@ int main(void) {
         printf("What do you want to order: ");
         
         while ((orderChoice = getchar())) {
-            /*while (getchar() != '\n')
-                continue;*/
-            
             switch (orderChoice) {
                 case 'a' :
                     printf("Pounds of artichokes: ");
@@ -84,7 +81,7 @@ int main(void) {
         if (discountAmount > 0)
             printf("** 5%% Discount: -$%.2f\n", discountAmount);
         
-        printf("** Total sum: %.2f\n", totalAmount - discountAmount);
+        printf("** Total sum: $%.2f\n", totalAmount - discountAmount);
         printf("** Shipping cost: $%.2f\n", shippingCost);
         printf("** Your total sum incl. shipping: $%.2f\n", totalAmount - discountAmount + shippingCost);
         printf("** Thank you for your order at ABC Mail Order Grocery.\n");
