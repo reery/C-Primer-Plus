@@ -1,8 +1,8 @@
 //
 //  Chapter 09 Exercise 06
 #include <stdio.h>
-void sorting(double * a, double * b, double * c);
 
+void sorting(double * a, double * b, double * c);
 
 int main(void)
 {
@@ -24,24 +24,49 @@ void sorting(double * a, double * b, double * c)
     double smallest, medium, largest;
     
     smallest = *a;
-    
-    if (smallest > *b)
-        smallest = *b;
-    if (smallest > *c)
-        smallest = *c;
-    
+    medium = *a;
     largest = *a;
     
-    if (largest < *b)
-        largest = *b;
-    if (largest < *c)
-        largest = *c;
+    if (smallest > *b)
+    {
+        smallest = *b;
+        if (*a > *c)
+        {
+            largest = *a;
+            medium = *c;
+        } else
+        {
+            largest = *c;
+            medium = *a;
+        }
+    }
     
-    medium = *a;
+    if (smallest > *c)
+    {
+        smallest = *c;
+        if (*a > *b)
+        {
+            largest = *a;
+            medium = *b;
+        } else
+        {
+            largest = *b;
+            medium = *a;
+        }
+    }
     
-    if (medium > *c || medium < *c)
-        medium = *b;
-    else medium = *c;
+    if (smallest == *a)
+    {
+        if (*b > *c)
+        {
+            largest = *b;
+            medium = *c;
+        } else
+        {
+            largest = *c;
+            medium = *b;
+        }
+    }
     
     *a = smallest;
     *b = medium;
